@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+
+RUN mkdir code
+RUN apt-get update && apt install micro -y
+WORKDIR /code
+COPY Pokedle.tar.gz .
+RUN tar -xvf Pokedle.tar.gz
+COPY pokedle.jar .

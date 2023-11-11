@@ -1,0 +1,18 @@
+FROM ubuntu:latest
+
+#setup web-app
+RUN mkdir -p /opt/pokedle
+WORKDIR /opt/pokedle
+
+#setup java
+RUN mkdir /opt/java
+WORKDIR /opt/java
+
+COPY jdk-17.0.8_linux-x64_bin.tar.gz .
+RUN tar -zxf jdk-17.0.8_linux-x64_bin.tar.gz
+
+RUN update-alternatives --install /usr/bin/javac javac /opt/java/jdk-17.0.8/bin/javac 100
+RUN update-alternatives --install /usr/bin/java java /opt/java/jdk-17.0.8/bin/java 100
+
+RUN update-alternatives --display java
+RUN java --version

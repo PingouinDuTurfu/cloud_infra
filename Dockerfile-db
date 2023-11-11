@@ -1,0 +1,5 @@
+FROM mysql
+
+RUN mkdir /opt/pokedle
+WORKDIR /opt/pokdle
+COPY init_pokedle.sql .
